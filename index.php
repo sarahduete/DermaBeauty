@@ -172,7 +172,7 @@
                     Ambiente destinado à administração
                     dos tratamentos e agendamentos da clínica.
                 </p>
-                <a href="admin/index.php">Acessar administração →</a>
+                <a href="https://dermabeauty.onrender.com/admin/">Acessar administração →</a>
             </article>
 
         </div>
