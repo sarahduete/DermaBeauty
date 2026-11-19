@@ -109,6 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Ainda não possui uma conta?</p>
                 <a href="cadastro.php">Cadastre-se aqui</a>
             </div>
+            /*Admin*/
+            <div class="login-admin">
+                <span>É administrador?</span>
+                <a href="../admin/login.php">Entrar como administrador</a>
+            </div>
 
             <div class="login-assinatura">
                 CUIDADO • BELEZA • BEM-ESTAR
