@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         } catch (PDOException $e) {
             $erro = 'Não foi possível realizar o cadastro. Verifique os dados informados.';
+            echo($e);
         }
     }
 }
