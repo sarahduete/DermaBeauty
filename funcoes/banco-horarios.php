@@ -1,4 +1,3 @@
-
 <?php
 
 function horarioParaMinutos(string $horario): int
