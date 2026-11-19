@@ -240,6 +240,33 @@
 
 </main>
 
+<section class="acesso-demo">
+    <span class="subtitulo">ACESSO PARA DEMONSTRAÇÃO</span>
+
+    <h2>Conheça também o painel administrativo.</h2>
+
+    <p>
+        Utilize as credenciais abaixo para conhecer
+        as funcionalidades administrativas da Derma Beauty.
+    </p>
+
+    <div class="credenciais">
+        <div>
+            <span>E-MAIL DO ADMINISTRADOR</span>
+            <strong>admin@dermabeauty.com</strong>
+        </div>
+
+        <div>
+            <span>SENHA DE DEMONSTRAÇÃO</span>
+            <strong>12345678</strong>
+        </div>
+    </div>
+
+    <a href="admin/login.php" class="botao-principal">
+        Acessar painel administrativo
+    </a>
+</section>
+
 <footer class="footer">
 
     <a href="index.php" class="logo">
@@ -250,7 +277,7 @@
     <p>© 2026 Derma Beauty. Todos os direitos reservados.</p>
 
     <a href="#inicio">Voltar ao início ↑</a>
-
+    
 </footer>
 
 </body>
