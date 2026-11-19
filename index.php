@@ -172,7 +172,7 @@
                     Ambiente destinado à administração
                     dos tratamentos e agendamentos da clínica.
                 </p>
-                <a href="https://dermabeauty.onrender.com/admin/">Acessar administração →</a>
+                <a href="https://dermabeauty.onrender.com/admin">Acessar administração →</a>
             </article>
 
         </div>
@@ -262,7 +262,7 @@
         </div>
     </div>
 
-    <a href="admin/login.php" class="botao-principal">
+    <a href="https://dermabeauty.onrender.com/admin" class="botao-principal">
         Acessar painel administrativo
     </a>
 </section>
