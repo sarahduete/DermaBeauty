@@ -1997,4 +1997,29 @@ a {
     border-color: #6E414B;
     box-shadow: 0 0 0 3px rgba(110, 65, 75, 0.12);
 }
+.login-admin {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #EAD8DC;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
+.login-admin span {
+    color: #806F72;
+    font-size: 12px;
+}
+
+.login-admin a {
+    color: #B97888;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.login-admin a:hover {
+    color: #6E414B;
+}
