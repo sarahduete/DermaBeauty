@@ -1,4 +1,3 @@
-
 <?php
 
 $caminhoBanco = __DIR__ . '/../../database/dermabeauty.db';
