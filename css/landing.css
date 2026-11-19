@@ -468,3 +468,57 @@ h1 span, h2 span {
         text-align: center;
     }
 }
+
+.acesso-demo {
+    padding: 80px 20px;
+    text-align: center;
+    background: #F6E9EA;
+}
+
+.acesso-demo h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: #6E414B;
+    margin-bottom: 15px;
+}
+
+.acesso-demo > p {
+    color: #806F72;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.credenciais {
+    max-width: 450px;
+    margin: 0 auto 30px;
+    padding: 25px;
+    background: #FFFFFF;
+    border: 1px solid #EAD8DC;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.credenciais div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.credenciais div + div {
+    border-top: 1px solid #EAD8DC;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.credenciais span {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #B97888;
+}
+
+.credenciais strong {
+    font-size: 14px;
+    color: #403638;
+    overflow-wrap: anywhere;
+}
