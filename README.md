@@ -67,7 +67,15 @@ Durante o processo, precisei lidar com diferentes desafios, principalmente na in
 <img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/f158bb14-f180-4231-aeeb-484f0cdb3bec" />
 
 ### Admin
-<img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/70105ef7-0720-4b81-8bdf-4b4569b39c1e" />
+<img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/ff52d2d1-6ed4-415f-ab74-3ebca90d9067" />
+<img width="1920" height="1290" alt="image" src="https://github.com/user-attachments/assets/d8e71af3-4b82-480c-a1f7-9c4b0f1a6b21" />
+<img width="1920" height="1813" alt="image" src="https://github.com/user-attachments/assets/ff79004e-7d72-42b5-8dbf-444bc879d89c" />
+<img width="1920" height="1719" alt="image" src="https://github.com/user-attachments/assets/c64a3ac3-23b1-4fc4-b430-69e19f5a3dd3" />
+<img width="1920" height="1209" alt="image" src="https://github.com/user-attachments/assets/7cc46e90-75bd-471d-ae05-c10831b4a938" />
+
+
+
+
 
 
 ## 📚 Aprendizados
