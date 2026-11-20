@@ -129,27 +129,7 @@ foreach ($consulta->fetchAll() as $linha) {
 
 <div class="layout">
 
-    <aside class="menu-lateral">
-
-        <h2 class="logo">Derma Beauty</h2>
-
-        <nav>
-
-            <a href="painel.php">Painel</a>
-
-            <a href="produtos.php">Tratamentos</a>
-
-            <a href="clientes.php">Clientes</a>
-
-            <a href="pedidos.php">Agendamentos</a>
-
-            <a href="horarios.php" class="ativo">Horários</a>
-
-            <a href="index.php" class="sair">Sair</a>
-
-        </nav>
-
-    </aside>
+    <?php require __DIR__ . '/menu.php'; ?>
 
     <main class="conteudo">
 
