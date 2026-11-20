@@ -31,7 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         $stmt->execute([$_SESSION['usuario_id'] ?? 0]);
-        $usuario = $stmt->fetch();
+       error_log('ID da sessão: ' . ($_SESSION['usuario_id'] ?? 'VAZIO'));
+
+            error_log('Usuário encontrado: ' . ($usuario ? 'SIM' : 'NÃO'));
+            
+            error_log('Senha confere: ' . (
+                $usuario && password_verify($senhaAtual, $usuario['senha'])
+                ? 'SIM'
+                : 'NÃO'
+            ));
 
         if (!$usuario || !password_verify($senhaAtual, $usuario['senha'])) {
 
