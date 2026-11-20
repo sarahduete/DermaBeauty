@@ -243,6 +243,126 @@ a {
 }
 
 
+/* ==========================================
+   4. LAYOUT E MENU LATERAL - DERMA BEAUTY
+========================================== */
+
+.layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.menu-lateral {
+    min-height: 100vh;
+    padding: 35px 22px;
+    background: var(--cor-lateral);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-lateral .logo {
+    color: #FFF9F6;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+/* NAVEGAÇÃO */
+
+.menu-lateral nav {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.menu-lateral nav a {
+    display: block;
+    padding: 13px 16px;
+    color: #F5E1E5;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: .2s ease;
+}
+
+.menu-lateral nav a:hover {
+    background: rgba(255,255,255,.12);
+    color: #FFFFFF;
+}
+
+/* ITEM ATIVO */
+
+.menu-lateral nav a.ativo {
+    background: #DCA9B4;
+    color: #6E414B;
+    font-weight: 700;
+}
+
+/* BOTÃO SAIR */
+
+.menu-lateral nav a.sair {
+    margin-top: 35px;
+    color: #F5D5DC;
+    border-top: 1px solid rgba(255,255,255,.18);
+    border-radius: 0;
+    padding-top: 20px;
+}
+
+.menu-lateral nav a.sair:hover {
+    color: #FFFFFF;
+    background: rgba(255,255,255,.10);
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.conteudo {
+    min-width: 0;
+    padding: 38px;
+    background: var(--cor-fundo);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-lateral {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .menu-lateral .logo {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .menu-lateral nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-lateral nav a.sair {
+        margin-top: 0;
+        padding-top: 13px;
+        border-top: none;
+    }
+
+    .conteudo {
+        padding: 25px 18px;
+    }
+}
+
+
 /* ===== 6. Tabelas e selos ===== */
 
 .tabela-rolagem {
