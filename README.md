@@ -73,7 +73,6 @@ Durante o processo, precisei lidar com diferentes desafios, principalmente na in
 <img width="1920" height="1719" alt="image" src="https://github.com/user-attachments/assets/c64a3ac3-23b1-4fc4-b430-69e19f5a3dd3" />
 <img width="1920" height="1209" alt="image" src="https://github.com/user-attachments/assets/7cc46e90-75bd-471d-ae05-c10831b4a938" />
 
----
 
 ## 📚 Aprendizados
 
@@ -82,7 +81,4 @@ O desenvolvimento do Derma Beauty foi uma oportunidade de aprofundar meus conhec
 Durante o projeto, pude compreender melhor como diferentes partes de uma aplicação se conectam, desde a interface apresentada ao usuário até o processamento e armazenamento das informações.
 
 Também aprendi a identificar erros, testar funcionalidades e realizar ajustes para melhorar o funcionamento do sistema.
-
-
-  
 
