@@ -156,58 +156,21 @@ a {
 
 /* ===== 4. Layout com menu lateral ===== */
 
-.layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  min-height: 100vh;
+/* MENU LATERAL - ITEM ATIVO */
+
+.menu-lateral nav a.ativo {
+    background-color: #DCA9B4;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 7px;
 }
 
-.menu-lateral {
-  background-color: var(--cor-lateral);
-  padding: 24px 16px;
+.menu-lateral nav a {
+    transition: background-color 0.2s ease;
 }
 
-.menu-lateral .logo {
-  color: var(--cor-branco);
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 26px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  padding-left: 12px;
-}
-
-.menu-lateral nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.menu-lateral a {
-  color: #F8E8EC;
-  text-decoration: none;
-  padding: 10px 12px;
-  border-radius: var(--raio);
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.menu-lateral a:hover {
-  background-color: #80535D;
-  color: var(--cor-branco);
-}
-
-.menu-lateral a.ativo {
-  background-color: var(--cor-primaria);
-  color: var(--cor-branco);
-}
-
-.menu-lateral a.sair {
-  margin-top: 24px;
-  border: 1px solid #80535D;
-}
-
-.conteudo {
-  padding: 32px;
-  background-color: var(--cor-fundo);
+.menu-lateral nav a:not(.ativo):not(.sair):hover {
+    background-color: rgba(220, 169, 180, 0.25);
 }
 
 /* ===== 5. Títulos e cartões ===== */
