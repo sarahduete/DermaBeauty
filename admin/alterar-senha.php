@@ -8,7 +8,7 @@ $email = 'admin@dermabeauty.com';
 $novaSenha = '12345678';
 
 // CHAVE DE SEGURANÇA TEMPORÁRIA
-$chave = 'TROQUE_POR_UMA_CHAVE_LONGA_E_SECRETA';
+$chave = 'Derma2026-Senha-Temporaria-8472';
 
 if (
     !isset($_GET['chave']) ||
