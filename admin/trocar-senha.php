@@ -6,11 +6,6 @@ require_once __DIR__ . '/config/conecta.php';
 
 $mensagem = '';
 
-// Verifica se o administrador está conectado
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: index.php');
-    exit;
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
