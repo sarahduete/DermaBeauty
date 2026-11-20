@@ -70,7 +70,6 @@ Durante o processo, precisei lidar com diferentes desafios, principalmente na in
 <img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/70105ef7-0720-4b81-8bdf-4b4569b39c1e" />
 
 
-
 ## 📚 Aprendizados
 
 O desenvolvimento do Derma Beauty foi uma oportunidade de aprofundar meus conhecimentos em PHP, integração com banco de dados e construção de sistemas web.
