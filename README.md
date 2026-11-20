@@ -51,8 +51,7 @@ Durante o processo, precisei lidar com diferentes desafios, principalmente na in
 | HTML | Estrutura das páginas |
 | CSS | Estilização e identidade visual |
 | PHP | Funcionalidades e processamento |
-| SQLite | Armazenamento dos dados |
-| Docker | Configuração do ambiente de implantação |
+| SQLite | Armazenamento dos dados 
 
 ## 🖥️ Prévia do projeto
 
