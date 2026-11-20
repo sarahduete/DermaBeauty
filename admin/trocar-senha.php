@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -6,14 +7,21 @@ require_once __DIR__ . '/config/conecta.php';
 
 $mensagem = '';
 
+$email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $email = trim($_POST['email'] ?? '');
     $senhaAtual = $_POST['senha_atual'] ?? '';
     $novaSenha = $_POST['nova_senha'] ?? '';
     $confirmarSenha = $_POST['confirmar_senha'] ?? '';
 
-    if ($senhaAtual === '' || $novaSenha === '' || $confirmarSenha === '') {
+    if (
+        $email === '' ||
+        $senhaAtual === '' ||
+        $novaSenha === '' ||
+        $confirmarSenha === ''
+    ) {
 
         $mensagem = 'Preencha todos os campos.';
 
@@ -29,29 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
 
-            // Busca o administrador
+            // Busca o administrador pelo e-mail
             $stmt = $pdo->prepare(
-                'SELECT id, senha FROM tbusuarios WHERE id = ?'
+                'SELECT id, senha FROM tbusuarios WHERE email = ?'
             );
 
-            $stmt->execute([$_SESSION['usuario_id']]);
+            $stmt->execute([$email]);
 
             $usuario = $stmt->fetch();
 
-            // Diagnóstico nos logs do Render
-            error_log('ID da sessão: ' . $_SESSION['usuario_id']);
-
-            error_log('Usuário encontrado: ' . ($usuario ? 'SIM' : 'NÃO'));
-
-            error_log('Senha confere: ' . (
-                $usuario && password_verify($senhaAtual, $usuario['senha'])
-                ? 'SIM'
-                : 'NÃO'
-            ));
-
             if (!$usuario) {
 
-                $mensagem = 'Usuário não encontrado.';
+                $mensagem = 'E-mail não encontrado.';
 
             } elseif (!password_verify($senhaAtual, $usuario['senha'])) {
 
@@ -62,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Criptografa a nova senha
                 $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
-                // Atualiza a senha no banco
+                // Atualiza no banco
                 $stmt = $pdo->prepare(
                     'UPDATE tbusuarios SET senha = ? WHERE id = ?'
                 );
@@ -77,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             error_log('Erro ao trocar senha: ' . $e->getMessage());
 
-            $mensagem = 'Não foi possível alterar a senha. Tente novamente.';
+            $mensagem = 'Não foi possível alterar a senha.';
 
         }
     }
@@ -102,6 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <h1>Trocar senha</h1>
 
+        <p class="subtitulo">
+            Informe seus dados para cadastrar uma nova senha.
+        </p>
+
         <?php if ($mensagem !== ''): ?>
             <p class="mensagem-erro">
                 <?= htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8') ?>
@@ -111,13 +112,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post">
 
             <div class="campo">
+                <label for="email">E-mail</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>"
+                    required
+                >
+            </div>
+
+            <div class="campo">
                 <label for="senha_atual">Senha atual</label>
 
                 <input
                     type="password"
                     id="senha_atual"
                     name="senha_atual"
-                    autocomplete="current-password"
                     required
                 >
             </div>
@@ -130,7 +142,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     id="nova_senha"
                     name="nova_senha"
                     minlength="8"
-                    autocomplete="new-password"
                     required
                 >
             </div>
@@ -143,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     id="confirmar_senha"
                     name="confirmar_senha"
                     minlength="8"
-                    autocomplete="new-password"
                     required
                 >
             </div>
@@ -155,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <p class="login-rodape">
-            <a href="painel.php">Voltar ao painel</a>
+            <a href="index.php">Voltar ao login</a>
         </p>
 
     </main>
