@@ -81,17 +81,10 @@ Durante o projeto, pude compreender melhor como diferentes partes de uma aplica�
 
 Também aprendi a identificar erros, testar funcionalidades e realizar ajustes para melhorar o funcionamento do sistema.
 
-## 🔗 Links
-
-- **[Acessar o projeto online](https://dermabeauty.onrender.com/)**
-
----
 
 <p align="center">
   Desenvolvido por <strong>Sarah Duete</strong> 💗
 </p>
-<img width="463" height="1600" alt="WhatsApp Image 2026-11-20 at 11 46 19" src="https://github.com/user-attachments/assets/2cc76d23-fb5f-49d6-855e-2ace2937aa0c" />
-<p align="center">
-<div align="center">
+
   
 
