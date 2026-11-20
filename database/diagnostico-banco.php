@@ -1,18 +1,29 @@
 <?php
 
-require_once __DIR__ . '/admin/config/conecta.php';
+require_once __DIR__ . '/../admin/config/conecta.php';
 
 echo "<h2>Diagnóstico do banco</h2>";
 
-echo "Caminho configurado: " . htmlspecialchars($caminhoBanco) . "<br>";
+echo "Arquivo existe: ";
+echo file_exists($caminhoBanco) ? "SIM" : "NÃO";
 
-echo "Arquivo existe: " . (file_exists($caminhoBanco) ? "SIM" : "NÃO") . "<br>";
+echo "<br>";
 
-echo "Caminho real: " . htmlspecialchars(realpath($caminhoBanco) ?: "Não encontrado") . "<br>";
+echo "Caminho real: ";
+echo htmlspecialchars(realpath($caminhoBanco) ?: "Não encontrado");
 
-echo "Tamanho: " . (file_exists($caminhoBanco) ? filesize($caminhoBanco) . " bytes" : "Indisponível") . "<br>";
+echo "<br>";
+
+echo "Tamanho: ";
+echo file_exists($caminhoBanco)
+    ? filesize($caminhoBanco) . " bytes"
+    : "Indisponível";
+
+echo "<br>";
 
 $stmt = $pdo->query("SELECT COUNT(*) FROM tbusuarios");
-echo "Administradores cadastrados: " . $stmt->fetchColumn() . "<br>";
 
-echo "<br>Conexão com o banco realizada!";
+echo "Administradores cadastrados: ";
+echo $stmt->fetchColumn();
+
+echo "<br><br>Conexão realizada!";
