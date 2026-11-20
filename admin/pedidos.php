@@ -330,29 +330,7 @@ $classesStatus = [
 
 <div class="layout">
 
-    <!-- MENU LATERAL -->
-
-    <aside class="menu-lateral">
-
-        <h2 class="logo">Derma Beauty</h2>
-
-        <nav>
-
-            <a href="painel.php">Painel</a>
-
-            <a href="produtos.php">Tratamentos</a>
-
-            <a href="clientes.php">Clientes</a>
-
-            <a href="pedidos.php">Agendamentos</a>
-
-            <a href="horarios.php">Horários</a>
-
-            <a href="index.php" class="sair">Sair</a>
-
-        </nav>
-
-    </aside>
+    <?php require __DIR__ . '/menu.php'; ?>
 
     <!-- CONTEÚDO PRINCIPAL -->
 
