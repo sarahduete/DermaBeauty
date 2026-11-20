@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -253,7 +252,7 @@
     <div class="credenciais">
         <div>
             <span>E-MAIL DO ADMINISTRADOR</span>
-            <strong>admin.dermabeauty@gmail.com</strong>
+            <strong>admin@dermabeauty.com</strong>
         </div>
 
         <div>
