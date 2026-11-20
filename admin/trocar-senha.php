@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
 
             // Busca o administrador pelo e-mail
-            $stmt = $pdo->prepare(
+            tmt = $pdo->prepare(
                 'SELECT id, senha FROM tbusuarios WHERE email = ?'
             );
 
@@ -64,7 +64,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
 
                 $stmt->execute([$hash, $usuario['id']]);
+                error_log('Linhas alteradas: ' . $stmt->rowCount());
 
+                $stmt = $pdo->prepare(
+                    'SELECT senha FROM tbusuarios WHERE id = ?'
+                );
+                
+                $stmt->execute([$usuario['id']]);
+                
+                $senhaSalva = $stmt->fetchColumn();
+                
+                error_log('Nova senha foi salva corretamente: ' .
+                    (password_verify($novaSenha, $senhaSalva) ? 'SIM' : 'NÃO')
+                );
                 $mensagem = 'Senha alterada com sucesso!';
 
             }
