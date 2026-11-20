@@ -2106,3 +2106,226 @@ a {
 .login-admin a:hover {
     color: #6E414B;
 }
+
+/* ==========================================
+   ADMINISTRAÇÃO DE ATENDIMENTOS
+   DERMA BEAUTY
+========================================== */
+
+/* Cartão que contém a tabela */
+
+.cartao:has(.tabela) {
+    overflow: hidden;
+}
+
+/* Área de rolagem */
+
+.tabela-rolagem {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    background: var(--cor-branco);
+}
+
+/* Tabela administrativa */
+
+.tabela {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Cabeçalho */
+
+.tabela thead th {
+    padding: 16px 14px;
+    background: #6E414B;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    white-space: nowrap;
+    border: none;
+}
+
+/* Células */
+
+.tabela tbody td {
+    padding: 16px 14px;
+    font-size: 13px;
+    color: var(--cor-texto);
+    border-bottom: 1px solid #F0E4E6;
+    vertical-align: middle;
+}
+
+/* Linhas */
+
+.tabela tbody tr:nth-child(even) {
+    background: #FFFAFA;
+}
+
+.tabela tbody tr:hover {
+    background: #FBECEF;
+}
+
+.tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Número do atendimento */
+
+.tabela tbody td:first-child {
+    color: var(--cor-lateral);
+    font-weight: 700;
+}
+
+/* Campo de edição de horário */
+
+.tabela form {
+    margin: 0;
+}
+
+.tabela input[type="time"] {
+    width: 105px;
+    min-height: 36px;
+    padding: 6px 9px;
+    background: #FFF9F6;
+    color: var(--cor-lateral);
+    border: 1px solid var(--cor-borda);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+/* Botões de formulário */
+
+.tabela button,
+.tabela .botao {
+    min-height: 34px;
+    padding: 7px 11px;
+    border: none;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+/* Botão salvar horário */
+
+.tabela button[type="submit"] {
+    background: #6E414B;
+    color: #FFFFFF;
+}
+
+.tabela button[type="submit"]:hover {
+    background: #B97888;
+}
+
+/* Campo de status */
+
+.tabela td.acoes select {
+    width: 125px;
+    min-height: 36px;
+    padding: 0 9px;
+    background: #FFF9F6;
+    color: var(--cor-lateral);
+    border: 1px solid var(--cor-borda);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+/* Organização das ações */
+
+.tabela .acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Botão atualizar */
+
+.tabela .acoes button {
+    background: #F1E1E5;
+    color: #6E414B;
+}
+
+.tabela .acoes button:hover {
+    background: #E8C3CC;
+}
+
+/* Botão cancelar */
+
+.tabela .acoes a,
+.tabela .acoes .cancelar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 11px;
+    background: #FBE7E5;
+    color: #A33F3A;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.tabela .acoes a:hover,
+.tabela .acoes .cancelar:hover {
+    background: #F3D2CF;
+}
+
+/* Selos de status */
+
+.selo {
+    padding: 6px 11px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.selo-pendente {
+    background: #F8E8EC;
+    color: #80535D;
+}
+
+.selo-pago {
+    background: #E4F1E9;
+    color: #356B50;
+}
+
+.selo-cancelado {
+    background: #FBE7E5;
+    color: #A33F3A;
+}
+
+/* Mensagens */
+
+.mensagem-sucesso,
+.mensagem-erro {
+    border-radius: 9px;
+    padding: 13px 16px;
+    font-size: 13px;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+    .tabela-rolagem {
+        border-radius: 9px;
+    }
+
+    .tabela {
+        min-width: 1050px;
+    }
+
+    .cartao:has(.tabela) {
+        padding: 18px;
+    }
+}
