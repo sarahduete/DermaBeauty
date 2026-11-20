@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
 
             // Busca o administrador pelo e-mail
-            tmt = $pdo->prepare(
+            $stmt = $pdo->prepare(
                 'SELECT id, senha FROM tbusuarios WHERE email = ?'
             );
 
