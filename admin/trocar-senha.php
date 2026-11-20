@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -5,6 +6,12 @@ session_start();
 require_once __DIR__ . '/config/conecta.php';
 
 $mensagem = '';
+
+// Verifica se o administrador está conectado
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: index.php');
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -26,36 +33,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
 
-        $stmt = $pdo->prepare(
-            'SELECT id, senha FROM tbusuarios WHERE id = ?'
-        );
+        try {
 
-        $stmt->execute([$_SESSION['usuario_id'] ?? 0]);
-       error_log('ID da sessão: ' . ($_SESSION['usuario_id'] ?? 'VAZIO'));
+            // Busca o administrador
+            $stmt = $pdo->prepare(
+                'SELECT id, senha FROM tbusuarios WHERE id = ?'
+            );
+
+            $stmt->execute([$_SESSION['usuario_id']]);
+
+            $usuario = $stmt->fetch();
+
+            // Diagnóstico nos logs do Render
+            error_log('ID da sessão: ' . $_SESSION['usuario_id']);
 
             error_log('Usuário encontrado: ' . ($usuario ? 'SIM' : 'NÃO'));
-            
+
             error_log('Senha confere: ' . (
                 $usuario && password_verify($senhaAtual, $usuario['senha'])
                 ? 'SIM'
                 : 'NÃO'
             ));
 
-        if (!$usuario || !password_verify($senhaAtual, $usuario['senha'])) {
+            if (!$usuario) {
 
-            $mensagem = 'A senha atual está incorreta.';
+                $mensagem = 'Usuário não encontrado.';
 
-        } else {
+            } elseif (!password_verify($senhaAtual, $usuario['senha'])) {
 
-            $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
+                $mensagem = 'A senha atual está incorreta.';
 
-            $stmt = $pdo->prepare(
-                'UPDATE tbusuarios SET senha = ? WHERE id = ?'
-            );
+            } else {
 
-            $stmt->execute([$hash, $usuario['id']]);
+                // Criptografa a nova senha
+                $hash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
-            $mensagem = 'Senha alterada com sucesso!';
+                // Atualiza a senha no banco
+                $stmt = $pdo->prepare(
+                    'UPDATE tbusuarios SET senha = ? WHERE id = ?'
+                );
+
+                $stmt->execute([$hash, $usuario['id']]);
+
+                $mensagem = 'Senha alterada com sucesso!';
+
+            }
+
+        } catch (PDOException $e) {
+
+            error_log('Erro ao trocar senha: ' . $e->getMessage());
+
+            $mensagem = 'Não foi possível alterar a senha. Tente novamente.';
 
         }
     }
@@ -64,15 +92,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Trocar senha | Derma Beauty</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body class="pagina-login">
 
     <main class="login-caixa">
+
         <h1>Trocar senha</h1>
 
         <?php if ($mensagem !== ''): ?>
@@ -82,32 +115,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="post">
+
             <div class="campo">
                 <label for="senha_atual">Senha atual</label>
-                <input type="password" id="senha_atual"
-                       name="senha_atual" required>
+
+                <input
+                    type="password"
+                    id="senha_atual"
+                    name="senha_atual"
+                    autocomplete="current-password"
+                    required
+                >
             </div>
 
             <div class="campo">
                 <label for="nova_senha">Nova senha</label>
-                <input type="password" id="nova_senha"
-                       name="nova_senha" minlength="8" required>
+
+                <input
+                    type="password"
+                    id="nova_senha"
+                    name="nova_senha"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
             </div>
 
             <div class="campo">
                 <label for="confirmar_senha">Confirmar nova senha</label>
-                <input type="password" id="confirmar_senha"
-                       name="confirmar_senha" minlength="8" required>
+
+                <input
+                    type="password"
+                    id="confirmar_senha"
+                    name="confirmar_senha"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required
+                >
             </div>
 
             <button type="submit" class="botao">
                 Alterar senha
             </button>
+
         </form>
 
         <p class="login-rodape">
             <a href="painel.php">Voltar ao painel</a>
         </p>
+
     </main>
 
 </body>
