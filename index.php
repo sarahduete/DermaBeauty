@@ -253,7 +253,7 @@
     <div class="credenciais">
         <div>
             <span>E-MAIL DO ADMINISTRADOR</span>
-            <strong>admin@dermabeauty.com</strong>
+            <strong>admin.dermabeauty@gmail.com</strong>
         </div>
 
         <div>
